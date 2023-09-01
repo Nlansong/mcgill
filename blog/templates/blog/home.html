@@ -3,8 +3,22 @@
 {% block content %}
 {% include  'header.html' %}
 
-<section class="w-full flex flex-col bg-white my-4">
-    <div></div>
+<section class="w-full  bg-white">
+    <div class="my-4 mx-6 grid grid-cols-3 bg-gray-100 gap-3 rounded-xl" >
+        {% for post in posts %}
+        <div class=" mx-4 my-2 py-2 px-2 border-2 border-gray-100 rounded-xl " >
+            <div>
+                <img src="{{post.image.url}}" class="rounded-t-xl h-64" >
+            </div>
+           
+            <a href="#"  > <h1 class="text-2xl bg-red-500 text-white rounded-b-xl "> {{post.title}} </h1></a>
+        </div>
+        {%endfor %}
+        <div>
+            <a href="{% url 'news:index' %}" class="text-2xl px-6 py-2 text-white bg-red-500">Read More</a>
+        </div>
+    </div>
+   
 </section>
  
 {% include 'footer.html' %}
